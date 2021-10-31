@@ -85,8 +85,8 @@ module.exports = (() => {
             } = Api;
             return class NitroPerksUltimate extends Plugin {
                 defaultSettings = {
-                    "emojiSize": "40",
-                    "screenSharing": false,
+                    "emojiSize": "48",
+                    "screenSharing": true,
                     "emojiBypass": true,
                     "clientsidePfp": false,
                     "pfpUrl": "",
@@ -102,7 +102,6 @@ module.exports = (() => {
                         ]),
                         new Settings.SettingGroup("Emojis").append(
                             new Settings.Switch("Nitro Emotes Bypass", "Enable or disable using the Nitro Emote bypass.", this.settings.emojiBypass, value => this.settings.emojiBypass = value),
-                            new Settings.Slider("Size", "The size of the emoji in pixels. 40 is recommended.", 16, 64, this.settings.emojiSize, size=>this.settings.emojiSize = size, {markers:[16,20,32,40,64], stickToMarkers:true})
                         ),
                             new Settings.SettingGroup("Profile Picture").append(...[
                                 new Settings.Switch("Clientsided Profile Picture", "Enable or disable clientsided profile pictures.", this.settings.clientsidePfp, value => this.settings.clientsidePfp = value),
@@ -159,7 +158,7 @@ module.exports = (() => {
                         Patcher.before(DiscordModules.MessageActions, "sendMessage", (_, [, msg]) => {
                             msg.validNonShortcutEmojis.forEach(emoji => {
                                 if (emoji.url.startsWith("/assets/")) return;
-                                msg.content = msg.content.replace(`<${emoji.animated ? "a" : ""}${emoji.allNamesString.replace(/~\d/g, "")}${emoji.id}>`, emoji.url + `&size=${this.settings.emojiSize} `)
+                                msg.content = msg.content.replace(`<${emoji.animated ? "a" : ""}${emoji.allNamesString.replace(/~\d/g, "")}${emoji.id}>`, emoji.url)
                             })
                         });
                         //for editing message also
