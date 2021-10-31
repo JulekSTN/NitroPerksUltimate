@@ -1,7 +1,7 @@
 /**
  * @name NitroPerksUltimate
  * @website https://github.com/JulekSTN/NitroPerksUltimate/main/NitroPerksUltimate.plugin.js
- * @source https://raw.githubusercontent.com/respecting/NitroPerksUltimate/main/NitroPerksUltimate.plugin.js
+ * @source https://raw.githubusercontent.com/JulekSTN/NitroPerksUltimate/main/NitroPerksUltimate.plugin.js
  * @updateUrl https://raw.githubusercontent.com/JulekSTN/NitroPerksUltimate/main/NitroPerksUltimate.plugin.js
  */
 /*@cc_on
@@ -29,7 +29,7 @@
 module.exports = (() => {
     const config = {
         "info": {
-            "name": "NitroPerks",
+            "name": "NitroPerksUltimate",
             "authors": [{
                 "name": "JulekSTN",
                 "discord_id": "407348579376693260",
@@ -40,7 +40,7 @@ module.exports = (() => {
             "github": "https://github.com/JulekSTN/NitroPerksUltimate",
             "github_raw": "https://github.com/JulekSTN/NitroPerksUltimate/main/NitroPerksUltimate.plugin.js"
         },
-        "main": "NitroPerks.plugin.js"
+        "main": "NitroPerksUltimate.plugin.js"
     };
 
     return !global.ZeresPluginLibrary ? class {
@@ -83,7 +83,7 @@ module.exports = (() => {
                 Toasts,
                 PluginUtilities
             } = Api;
-            return class NitroPerks extends Plugin {
+            return class NitroPerksUltimate extends Plugin {
                 defaultSettings = {
                     "emojiSize": "40",
                     "screenSharing": false,
